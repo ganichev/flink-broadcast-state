@@ -1,7 +1,6 @@
 package bs;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.flink.api.common.state.MapState;
 import org.apache.flink.api.common.state.MapStateDescriptor;
 import org.apache.flink.api.common.typeinfo.BasicTypeInfo;
 import org.apache.flink.configuration.Configuration;
@@ -37,8 +36,5 @@ public class MyProcessFunction extends BroadcastProcessFunction<String, String, 
 
     @Override
     public void open(Configuration parameters) throws Exception {
-        MapState<String, String> mapState = getRuntimeContext().getMapState(broadcastStateDescriptor);
-        String rules = mapState.get(STATE_KEY);
-        log.info("The rules are {}", rules);
     }
 }

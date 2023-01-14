@@ -9,7 +9,7 @@ public class Pipeline {
     public static void main(String[] args) throws Exception {
         log.info("Starting...");
 
-        StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+        StreamExecutionEnvironment env = StreamExecutionEnvironment.createLocalEnvironment();
 
         env.setParallelism(4);
 
